@@ -16,6 +16,7 @@ class Employee(MPTTModel):
     salary = models.IntegerField(verbose_name='Заработная плата')
     date_of_employment= models.DateField(verbose_name='Дата устройства на работу',default=False)
     parent = TreeForeignKey('self',verbose_name='Начальник', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+    information_on_salary = models.IntegerField(verbose_name='Информация о вылпаченной заработной плате')
     def __str__(self):
         return str(self.id) + ':' + self.full_name
 
